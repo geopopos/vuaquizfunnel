@@ -495,12 +495,12 @@
         const radioButtons = document.querySelectorAll('input[type="radio"]');
         radioButtons.forEach(radio => {
             radio.addEventListener('change', function() {
-                // Get the element you want to scroll to
-                let element = document.querySelector("form");
+                if (this.checked) {
+                    // Get the element you want to scroll to
+                    let element = document.querySelector("form");
 
                 // Scroll to the element
                 element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                if (this.checked) {
                     showNextQuestion();
                 }
             });
