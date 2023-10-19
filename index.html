@@ -6,11 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Roofing Service Form</title>
     <style>
+        .background-image {
+            background-image: url('https://www.californiacontractorbonds.com/wp-content/uploads/2022/04/Screen-Shot-2022-04-21-at-3.28.45-PM.png');
+            background-size: cover;
+            background-position: center;
+            padding-bottom: 50px;
+            position: relative;
+        }
+        .background-image::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+        }
         .card-header {
             padding-bottom: 30px !important;
             margin-bottom: 20px !important;
         }
-        
         .custom-btn-height {
             margin: 0 !important; /* Reset margin */
             padding: .375rem .75rem; /* Adjust padding if necessary */
@@ -22,10 +37,10 @@
         input[type="radio"] {
             display: none; /* Hide the radio buttons */
         }
-    
+
         /* Additional Styles for Enhanced Design */
         .progress-fill {
-            background: #007bff; /* Color of the progress fill */
+            background: #0B7BFF; /* Color of the progress fill */
             height: 5px;
             width: 0%; /* Initial width */
             position: absolute;
@@ -43,13 +58,13 @@
             position: relative;
             margin-bottom: 2rem;
         }
-    
+
         .step-progress li {
             text-align: center;
             flex: 1;
             position: relative;
         }
-    
+
         .step-progress li::before {
             content: "";
             width: 100%;
@@ -61,20 +76,20 @@
             transform: translate(-50%, -50%);
             z-index: 1;
         }
-    
+
         .step-progress li:last-child::before {
             display: none;
         }
-    
+
         .step-progress li.active::after {
-            background: #007bff;
+            background: #0B7BFF;
         }
-    
+
         .step-progress li::after {
             content: "";
             width: 20px;
             height: 20px;
-            border: 5px solid #007bff;
+            border: 5px solid #0B7BFF;
             background: #fff;
             border-radius: 50%;
             position: absolute;
@@ -84,21 +99,22 @@
             z-index: 2;
             transition: background 0.3s;
         }
-    
+
         .feedback-tooltip {
             position: absolute;
             top: 0;
             left: 50%;
             transform: translate(-50%, -120%);
-            background: #007bff;
+            background: #0B7BFF;
             color: #fff;
+            border: 1px solid #fff;
             padding: 0.5rem 1rem;
             border-radius: 0.25rem;
             opacity: 0;
             transition: opacity 0.3s, transform 0.3s;
             pointer-events: none;
         }
-    
+
         .feedback-tooltip::after {
             content: "";
             position: absolute;
@@ -107,13 +123,14 @@
             transform: translateX(-50%);
             border-width: 6px;
             border-style: solid;
-            border-color: #007bff transparent transparent transparent;
+            border-color: #0B7BFF transparent transparent transparent;
         }
-    
+
         .step-progress li.active .feedback-tooltip {
             opacity: 1;
             transform: translate(-50%, -100%);
         }
+        
 
 
     </style>
@@ -122,168 +139,168 @@
 </head>
 
 <body class="bg-light">
-<div class="container mt-5">
-    <!-- Logo Section -->
-    <div class="row justify-content-center mb-5">
-        <div class="col-md-8 text-center">
-            <img src="https://volumeupagency.com/wp-content/uploads/2023/02/f10fa774-bfe4-4f71-b3ce-8532f8359010.webp" alt="Company Logo" width="200" loading="lazy">
-        </div>
-    </div>
-    <div class="row justify-content-center" id="surveySection">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header text-center bg-primary text-white">
-                    <h1>Get Homeowners Who Are Looking For A Roof Replacement Live On The Phone</h1>
-                    <h4 style="color:yellow;">No more follow up. Let us handle it for you!</h4>
+    <div class="background-image">
+        <div class="container">
+        <div class="container mt-5">
+            <!-- Logo Section -->
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-8 text-center">
+                    <img src="https://volumeupagency.com/wp-content/uploads/2023/02/f10fa774-bfe4-4f71-b3ce-8532f8359010.webp" alt="Company Logo" width="200" loading="lazy">
                 </div>
-                <div class="card-body">
-
-                    <!-- Enhanced Progress Bar -->
-                    <ul class="step-progress">
-                        <li class="active">
-                            <div class="progress-fill"></div>
-                            <div class="feedback-tooltip">Let's get started!</div>
-                        </li>
-                        <li>
-                            <div class="progress-fill"></div>
-                            <div class="feedback-tooltip">Keep going!</div>
-                        </li>
-                        <li>
-                            <div class="progress-fill"></div>
-                            <div class="feedback-tooltip">You're halfway there!</div>
-                        </li>
-                        <li>
-                            <div class="progress-fill"></div>
-                            <div class="feedback-tooltip">Almost done!</div>
-                        </li>
-                        <li>
-                            <div class="progress-fill"></div>
-                            <div class="feedback-tooltip">Just a few more details!</div>
-                        </li>
-                        <li>
-                            <div class="feedback-tooltip">Last step!</div>
-                        </li>
-                        <li>
-                            <div class="progress-fill"></div>
-                            <div class="feedback-tooltip">Ready to submit!</div>
-                        </li>
-                    </ul>
-
-
-                    <div id="errorDiv" class="alert alert-danger mt-3 d-none" role="alert"></div>
-                    <form id="roofingForm" action="thankyou.html" method="post" netlify>
-                        <!-- Question 1 -->
-                        <div id="question1" class="quiz-question">
-                            <label><h3>What is going on with your roof that you need our help with?</h3></label>
-                            <div class="row">
-                                <div class="col-md-6 mb-2">
-                                    <label class="btn btn-outline-primary btn-block custom-btn">
-                                        <input type="radio" name="timeinindustry" id="timeinindustry1to5years" value="1-5 years" required> 1-5 Years
-                                    </label>
-                                </div>
-                                <div class="col-md-6 mb-2">
-                                    <label class="btn btn-outline-primary btn-block custom-btn">
-                                        <input type="radio" name="timeinindustry" id="timeinindustry5to10years" value="5-10 years" required> 5-10 years
-                                    </label>
-                                </div>
-                                <div class="col-md-6 mb-2">
-                                    <label class="btn btn-outline-primary btn-block custom-btn">
-                                        <input type="radio" name="timeinindustry" id="timeinindustry10to15years" value="10-15 years" required> 10-15 years
-                                    </label>
-                                </div>
-                                <div class="col-md-6 mb-2">
-                                    <label class="btn btn-outline-primary btn-block custom-btn">
-                                        <input type="radio" name="timeinindustry" id="timeinindustry15years+" value="15 years+" required> 15 years+
-                                    </label>
-                                </div>
-                            </div>
-                            <button type="button" class="btn btn-primary btn-block mt-3" onclick="showNextQuestion()">Next</button>
+            </div>
+            <div class="row justify-content-center" id="surveySection">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header text-center bg-primary text-white">
+                            <h1>Get Homeowners Who Are Looking For A Roof Replacement Live On The Phone</h1>
+                            <h4 style="color:yellow;">No more follow up. Let us handle it for you!</h4>
                         </div>
+                        <div class="card-body">
 
-                        <!-- Question 2 -->
-                        <div id="question2" class="quiz-question d-none">
-                            <label><h3>How soon are you looking to get your roof replaced?</h3></label>
-                            <div class="row">
-                                <div class="col-md-4 mb-2">
-                                    <label class="btn btn-outline-primary btn-block custom-btn">
-                                        <input type="radio" name="replacementTime" value="asap" id="replacementTimeASAP" required> ⏱️ ASAP
-                                    </label>
+                            <!-- Enhanced Progress Bar -->
+                            <ul class="step-progress">
+                                <li class="active">
+                                    <div class="progress-fill"></div>
+                                    <div class="feedback-tooltip">Let's get started!</div>
+                                </li>
+                                <li>
+                                    <div class="progress-fill"></div>
+                                    <div class="feedback-tooltip">Keep going!</div>
+                                </li>
+                                <li>
+                                    <div class="progress-fill"></div>
+                                    <div class="feedback-tooltip">You're halfway there!</div>
+                                </li>
+                                <li>
+                                    <div class="progress-fill"></div>
+                                    <div class="feedback-tooltip">Almost done!</div>
+                                </li>
+                                <li>
+                                    <div class="progress-fill"></div>
+                                    <div class="feedback-tooltip">Just a few more details!</div>
+                                </li>
+                                <li>
+                                    <div class="feedback-tooltip">Last step!</div>
+                                </li>
+                                <li>
+                                    <div class="progress-fill"></div>
+                                    <div class="feedback-tooltip">Ready to submit!</div>
+                                </li>
+                            </ul>
+
+
+                            <div id="errorDiv" class="alert alert-danger mt-3 d-none" role="alert"></div>
+                            <form id="roofingForm" action="thankyou.html" method="post" netlify>
+                                <!-- Question 1 -->
+                                <div id="question1" class="quiz-question">
+                                    <label><h3>What is going on with your roof that you need our help with?</h3></label>
+                                    <div class="row">
+                                        <div class="col-md-6 mb-2">
+                                            <label class="btn btn-outline-primary btn-block custom-btn">
+                                                <input type="radio" name="timeinindustry" id="timeinindustry1to5years" value="1-5 years" required> 1-5 Years
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6 mb-2">
+                                            <label class="btn btn-outline-primary btn-block custom-btn">
+                                                <input type="radio" name="timeinindustry" id="timeinindustry5to10years" value="5-10 years" required> 5-10 years
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6 mb-2">
+                                            <label class="btn btn-outline-primary btn-block custom-btn">
+                                                <input type="radio" name="timeinindustry" id="timeinindustry10to15years" value="10-15 years" required> 10-15 years
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6 mb-2">
+                                            <label class="btn btn-outline-primary btn-block custom-btn">
+                                                <input type="radio" name="timeinindustry" id="timeinindustry15years+" value="15 years+" required> 15 years+
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-primary btn-block mt-3" onclick="showNextQuestion()">Next</button>
                                 </div>
-                                <div class="col-md-4 mb-2">
-                                    <label class="btn btn-outline-primary btn-block custom-btn">
-                                        <input type="radio" name="replacementTime" value="1_week" id="replacementTime1_week" required> 📆 Within 1 week
-                                    </label>
+
+                                <!-- Question 2 -->
+                                <div id="question2" class="quiz-question d-none">
+                                    <label><h3>Are you the owner or partner of your company?</h3></label>
+                                    <div class="row">
+                                    <div class="col-md-6 mb-2">
+                                        <label class="btn btn-outline-primary btn-block custom-btn">
+                                        <input type="radio" name="companyowner" id="companyowner-yes" value="yes" required> Yes
+                                        </label>
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label class="btn btn-outline-primary btn-block custom-btn">
+                                        <input type="radio" name="companyowner" id="companyowner-no" value="no" required> No
+                                        </label>
+                                    </div>
+                                    </div>
+                                    <button type="button" class="btn btn-primary btn-block mt-3" onclick="showNextQuestion()">Next</button>
                                 </div>
-                                <div class="col-md-4 mb-2">
-                                    <label class="btn btn-outline-primary btn-block custom-btn">
-                                        <input type="radio" name="replacementTime" value="3_weeks" id="replacementTime3_weeks" required> 🗓️ Within 3 weeks
-                                    </label>
+
+                                <!-- Question 3 -->
+                                <div id="question3" class="quiz-question d-none">
+                                    <label><h3>What is your estimated credit score? (We use this to prequalify you for financing)</h3></label>
+                                    <div class="row">
+                                        <div class="col-md-3 mb-2">
+                                            <label class="btn btn-outline-primary btn-block custom-btn">
+                                                <input type="radio" name="creditScore" value="poor" id="creditScorePoor" required> Poor (400-650)
+                                            </label>
+                                        </div>
+                                        <div class="col-md-3 mb-2">
+                                            <label class="btn btn-outline-primary btn-block custom-btn">
+                                                <input type="radio" name="creditScore" value="fair" id="creditScoreFair"  required> Fair (650-700)
+                                            </label>
+                                        </div>
+                                        <div class="col-md-3 mb-2">
+                                            <label class="btn btn-outline-primary btn-block custom-btn">
+                                                <input type="radio" name="creditScore" value="good" id="creditScoreGood" required> Good (700-750)
+                                            </label>
+                                        </div>
+                                        <div class="col-md-3 mb-2">
+                                            <label class="btn btn-outline-primary btn-block custom-btn">
+                                                <input type="radio" name="creditScore" value="excellent" id="creditScoreExcellent" required> Excellent (750+)
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-primary btn-block mt-3" onclick="showNextQuestion()">Next</button>
                                 </div>
-                            </div>
-                            <button type="button" class="btn btn-primary btn-block mt-3" onclick="showNextQuestion()">Next</button>
+
+
+                                <!-- Question 4 -->
+                                <div id="question4" class="quiz-question d-none">
+                                    <label><h3>What is your name?</h3></label>
+                                    <input type="text" name="name" class="form-control mb-3" onkeypress="checkEnter(event)" required autofocus>
+                                    <button type="button" class="btn btn-primary btn-block mt-3" onclick="showNextQuestion()">Next</button>
+                                </div>
+
+                                <!-- Question 5 -->
+                                <div id="question5" class="quiz-question d-none">
+                                    <label><h3>What is your email?</h3></label>
+                                    <input type="email" name="email" class="form-control mb-3" onkeypress="checkEnter(event)" required autofocus>
+                                    <button type="button" class="btn btn-primary btn-block mt-3" onclick="showNextQuestion()">Next</button>
+                                </div>
+
+                                <!-- Question 6 -->
+                                <div id="question6" class="quiz-question d-none">
+                                    <label><h3>What is your phone?</h3></label>
+                                    <input type="tel" name="phone" class="form-control mb-3" onkeypress="checkEnter(event)" required autofocus>
+                                    <button type="button" class="btn btn-primary btn-block mt-3" onclick="showNextQuestion()">Next</button>
+                                </div>
+
+                                <!-- Question 7 -->
+                                <div id="question7" class="quiz-question d-none">
+                                    <label><h3>What is the address our contractors would be going to for your roofing project?</h3></label>
+                                    <input type="text" id="autocomplete" name="address" class="form-control mb-3" required autofocus>
+                                    <button type="submit" class="btn btn-success btn-block">Submit</button>
+                                </div>
+                            </form>
                         </div>
-
-                        <!-- Question 3 -->
-                        <div id="question3" class="quiz-question d-none">
-                            <label><h3>What is your estimated credit score? (We use this to prequalify you for financing)</h3></label>
-                            <div class="row">
-                                <div class="col-md-3 mb-2">
-                                    <label class="btn btn-outline-primary btn-block custom-btn">
-                                        <input type="radio" name="creditScore" value="poor" id="creditScorePoor" required> Poor (400-650)
-                                    </label>
-                                </div>
-                                <div class="col-md-3 mb-2">
-                                    <label class="btn btn-outline-primary btn-block custom-btn">
-                                        <input type="radio" name="creditScore" value="fair" id="creditScoreFair"  required> Fair (650-700)
-                                    </label>
-                                </div>
-                                <div class="col-md-3 mb-2">
-                                    <label class="btn btn-outline-primary btn-block custom-btn">
-                                        <input type="radio" name="creditScore" value="good" id="creditScoreGood" required> Good (700-750)
-                                    </label>
-                                </div>
-                                <div class="col-md-3 mb-2">
-                                    <label class="btn btn-outline-primary btn-block custom-btn">
-                                        <input type="radio" name="creditScore" value="excellent" id="creditScoreExcellent" required> Excellent (750+)
-                                    </label>
-                                </div>
-                            </div>
-                            <button type="button" class="btn btn-primary btn-block mt-3" onclick="showNextQuestion()">Next</button>
-                        </div>
-
-
-                        <!-- Question 4 -->
-                        <div id="question4" class="quiz-question d-none">
-                            <label><h3>What is your name?</h3></label>
-                            <input type="text" name="name" class="form-control mb-3" onkeypress="checkEnter(event)" required autofocus>
-                            <button type="button" class="btn btn-primary btn-block mt-3" onclick="showNextQuestion()">Next</button>
-                        </div>
-
-                        <!-- Question 5 -->
-                        <div id="question5" class="quiz-question d-none">
-                            <label><h3>What is your email?</h3></label>
-                            <input type="email" name="email" class="form-control mb-3" onkeypress="checkEnter(event)" required autofocus>
-                            <button type="button" class="btn btn-primary btn-block mt-3" onclick="showNextQuestion()">Next</button>
-                        </div>
-
-                        <!-- Question 6 -->
-                        <div id="question6" class="quiz-question d-none">
-                            <label><h3>What is your phone?</h3></label>
-                            <input type="tel" name="phone" class="form-control mb-3" onkeypress="checkEnter(event)" required autofocus>
-                            <button type="button" class="btn btn-primary btn-block mt-3" onclick="showNextQuestion()">Next</button>
-                        </div>
-
-                        <!-- Question 7 -->
-                        <div id="question7" class="quiz-question d-none">
-                            <label><h3>What is the address our contractors would be going to for your roofing project?</h3></label>
-                            <input type="text" id="autocomplete" name="address" class="form-control mb-3" required autofocus>
-                            <button type="submit" class="btn btn-success btn-block">Submit</button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 <!-- Engaging Sections -->
 <div class="container mt-5">
 
