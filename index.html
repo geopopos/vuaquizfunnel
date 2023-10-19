@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>More Homeowners On The Phone</title>
+    <title>More Homeowners On The Phone + Less Headache</title>
     <style>
         .background-image {
             background-image: url('https://www.californiacontractorbonds.com/wp-content/uploads/2022/04/Screen-Shot-2022-04-21-at-3.28.45-PM.png');
@@ -507,21 +507,26 @@
         });
     });
     
-    function showQuestion(questionNumber, inputName) {
+    function showQuestion(questionNumber) {
+        let prevQuestionNumber = questionNumber - 1;
 
-        // Validate the input before moving to the next question
-        if (questionNumber === 2 && !validateRadioButtons('timeinindustry')) {
+        // Get the question1 div
+        const question = document.getElementById('question' + prevQuestionNumber);
+
+        // Get the first input element within the question1 div
+        const firstInput = question.querySelector('input');
+
+        // Derive the name and type from the first input element
+        const inputName = firstInput.getAttribute('name');
+        const inputType = firstInput.getAttribute('type');
+
+        if (inputType === 'radio' & !validateRadioButtons(inputName)) {
             showError('Please select an option before proceeding.');
             return;
-        }
-        if (questionNumber === 3 && !validateRadioButtons('replacementTime')) {
-            showError('Please select an option before proceeding.');
+        } else if(!validateInput(inputName)) {
             return;
         }
-        if (questionNumber === 4 && !validateRadioButtons('creditScore')) {
-            showError('Please select an option before proceeding.');
-            return;
-        }
+
         // Validate the input before moving to the next question
         if (questionNumber === 5 && !validateInput('name')) return;
         if (questionNumber === 6 && !validateInput('email')) return;
@@ -532,7 +537,7 @@
         hideError();
 
         // Update progress bar
-        updateProgressBar(questionNumber-1);
+        updateProgressBar(prevQuestionNumber);
         const steps = document.querySelectorAll('.step-progress li');
         steps.forEach((step, index) => {
             if (index < questionNumber) {
@@ -568,6 +573,7 @@
     }
 
     function validateRadioButtons(groupName) {
+        console.log('checking radio buttons for group ' + groupName)
         const radioButtons = document.getElementsByName(groupName);
         for (let i = 0; i < radioButtons.length; i++) {
             if (radioButtons[i].checked) {
