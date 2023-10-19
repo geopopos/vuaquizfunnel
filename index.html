@@ -492,6 +492,11 @@
     }
 
     document.addEventListener('DOMContentLoaded', function() {
+        // Get the element you want to scroll to
+        let element = document.querySelector("#yourElementId");
+
+        // Scroll to the element
+        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
         const radioButtons = document.querySelectorAll('input[type="radio"]');
         radioButtons.forEach(radio => {
             radio.addEventListener('change', function() {
