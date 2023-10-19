@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roofing Service Form</title>
+    <style>
+        .card-header {
+            padding-bottom: 30px !important;
+            margin-bottom: 20px !important;
+        }
+        
+        .custom-btn-height {
+            margin: 0 !important; /* Reset margin */
+            padding: .375rem .75rem; /* Adjust padding if necessary */
+            line-height: 1.5; /* Adjust line height if necessary */
+        }
+        .btn-group-toggle.d-flex {
+            align-items: center; /* Vertically center the buttons */
+        }
+        input[type="radio"] {
+            display: none; /* Hide the radio buttons */
+        }
+    
+        /* Additional Styles for Enhanced Design */
+        .progress-fill {
+            background: #007bff; /* Color of the progress fill */
+            height: 5px;
+            width: 0%; /* Initial width */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%);
+            z-index: 2; /* Above the background bar but below the tooltip */
+        }
+
+        .step-progress {
+            display: flex;
+            justify-content: space-between;
+            list-style-type: none;
+            padding: 0;
+            position: relative;
+            margin-bottom: 2rem;
+        }
+    
+        .step-progress li {
+            text-align: center;
+            flex: 1;
+            position: relative;
+        }
+    
+        .step-progress li::before {
+            content: "";
+            width: 100%;
+            height: 5px;
+            background: #e9ecef;
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+    
+        .step-progress li:last-child::before {
+            display: none;
+        }
+    
+        .step-progress li.active::after {
+            background: #007bff;
+        }
+    
+        .step-progress li::after {
+            content: "";
+            width: 20px;
+            height: 20px;
+            border: 5px solid #007bff;
+            background: #fff;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            transition: background 0.3s;
+        }
+    
+        .feedback-tooltip {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -120%);
+            background: #007bff;
+            color: #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            pointer-events: none;
+        }
+    
+        .feedback-tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 6px;
+            border-style: solid;
+            border-color: #007bff transparent transparent transparent;
+        }
+    
+        .step-progress li.active .feedback-tooltip {
+            opacity: 1;
+            transform: translate(-50%, -100%);
+        }
+    </style>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body class="bg-light">
+
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header text-center bg-primary text-white">
+                    <h1>Get Today's Best Price On A New Roof</h1>
+                    <h4 style="color:yellow;">[Don't Miss Out, Limited Spots Available!]</h4>
+                </div>
+                <div class="card-body">
+
+                    <!-- Enhanced Progress Bar -->
+                    <ul class="step-progress">
+                        <li class="active">
+                            <div class="progress-fill"></div>
+                            <div class="feedback-tooltip">Let's get started!</div>
+                        </li>
+                        <li>
+                            <div class="progress-fill"></div>
+                            <div class="feedback-tooltip">Keep going!</div>
+                        </li>
+                        <li>
+                            <div class="progress-fill"></div>
+                            <div class="feedback-tooltip">You're halfway there!</div>
+                        </li>
+                        <li>
+                            <div class="progress-fill"></div>
+                            <div class="feedback-tooltip">Almost done!</div>
+                        </li>
+                        <li>
+                            <div class="progress-fill"></div>
+                            <div class="feedback-tooltip">Just a few more details!</div>
+                        </li>
+                        <li>
+                            <div class="feedback-tooltip">Last step!</div>
+                        </li>
+                        <li>
+                            <div class="progress-fill"></div>
+                            <div class="feedback-tooltip">Ready to submit!</div>
+                        </li>
+                    </ul>
+
+
+                    <div id="errorDiv" class="alert alert-danger mt-3 d-none" role="alert"></div>
+                    <form id="roofingForm" action="thankyou.html" method="post" netlify>
+                        <!-- Question 1 -->
+                        <div id="question1" class="quiz-question">
+                            <label><h3>What is going on with your roof that you need our help with?</h3></label>
+                            <div class="row">
+                                <div class="col-md-6 mb-2">
+                                    <label class="btn btn-outline-primary btn-block custom-btn">
+                                        <input type="radio" name="roofIssue" id="roofIssueLeaking" value="leaking" onclick="showQuestion(2)" required> 💦It's leaking
+                                    </label>
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <label class="btn btn-outline-primary btn-block custom-btn">
+                                        <input type="radio" name="roofIssue" id="roofIssueReplacement" value="replacement" onclick="showQuestion(2)" required> 🔨I need it replaced
+                                    </label>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-primary btn-block mt-3" onclick="showQuestion(2)">Next</button>
+                        </div>
+
+                        <!-- Question 2 -->
+                        <div id="question2" class="quiz-question d-none">
+                            <label><h3>How soon are you looking to get your roof replaced?</h3></label>
+                            <div class="row">
+                                <div class="col-md-4 mb-2">
+                                    <label class="btn btn-outline-primary btn-block custom-btn">
+                                        <input type="radio" name="replacementTime" value="asap" onclick="showQuestion(3)" id="replacementTimeASAP" required> ⏱️ ASAP
+                                    </label>
+                                </div>
+                                <div class="col-md-4 mb-2">
+                                    <label class="btn btn-outline-primary btn-block custom-btn">
+                                        <input type="radio" name="replacementTime" value="1_week" onclick="showQuestion(3)" id="replacementTime1_week" required> 📆 Within 1 week
+                                    </label>
+                                </div>
+                                <div class="col-md-4 mb-2">
+                                    <label class="btn btn-outline-primary btn-block custom-btn">
+                                        <input type="radio" name="replacementTime" value="3_weeks" onclick="showQuestion(3)" id="replacementTime3_weeks" required> 🗓️ Within 3 weeks
+                                    </label>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-primary btn-block mt-3" onclick="showQuestion(3)">Next</button>
+                        </div>
+
+                        <!-- Question 3 -->
+                        <div id="question3" class="quiz-question d-none">
+                            <label><h3>What is your estimated credit score? (We use this to prequalify you for financing)</h3></label>
+                            <div class="row">
+                                <div class="col-md-3 mb-2">
+                                    <label class="btn btn-outline-primary btn-block custom-btn">
+                                        <input type="radio" name="creditScore" value="poor" id="creditScorePoor" onclick="showQuestion(4)" required> Poor (400-650)
+                                    </label>
+                                </div>
+                                <div class="col-md-3 mb-2">
+                                    <label class="btn btn-outline-primary btn-block custom-btn">
+                                        <input type="radio" name="creditScore" value="fair" id="creditScoreFair"  onclick="showQuestion(4)" required> Fair (650-700)
+                                    </label>
+                                </div>
+                                <div class="col-md-3 mb-2">
+                                    <label class="btn btn-outline-primary btn-block custom-btn">
+                                        <input type="radio" name="creditScore" value="good" id="creditScoreGood" onclick="showQuestion(4)" required> Good (700-750)
+                                    </label>
+                                </div>
+                                <div class="col-md-3 mb-2">
+                                    <label class="btn btn-outline-primary btn-block custom-btn">
+                                        <input type="radio" name="creditScore" value="excellent" id="creditScoreExcellent" onclick="showQuestion(4)" required> Excellent (750+)
+                                    </label>
+                                </div>
+                            </div>
+                            <button type="button" class="btn btn-primary btn-block mt-3" onclick="showQuestion(4)">Next</button>
+                        </div>
+
+
+                        <!-- Question 4 -->
+                        <div id="question4" class="quiz-question d-none">
+                            <label><h3>What is your name?</h3></label>
+                            <input type="text" name="name" class="form-control mb-3" onkeypress="checkEnter(5)" required autofocus>
+                            <button type="button" class="btn btn-primary btn-block mt-3" onclick="showQuestion(5)">Next</button>
+                        </div>
+
+                        <!-- Question 5 -->
+                        <div id="question5" class="quiz-question d-none">
+                            <label><h3>What is your email?</h3></label>
+                            <input type="email" name="email" class="form-control mb-3" onkeypress="checkEnter(6)" required autofocus>
+                            <button type="button" class="btn btn-primary btn-block mt-3" onclick="showQuestion(6)">Next</button>
+                        </div>
+
+                        <!-- Question 6 -->
+                        <div id="question6" class="quiz-question d-none">
+                            <label><h3>What is your phone?</h3></label>
+                            <input type="tel" name="phone" class="form-control mb-3" onkeypress="checkEnter(7)" required autofocus>
+                            <button type="button" class="btn btn-primary btn-block mt-3" onclick="showQuestion(7)">Next</button>
+                        </div>
+
+                        <!-- Question 7 -->
+                        <div id="question7" class="quiz-question d-none">
+                            <label><h3>What is the address our contractors would be going to for your roofing project?</h3></label>
+                            <input type="text" id="autocomplete" name="address" class="form-control mb-3" required autofocus>
+                            <button type="submit" class="btn btn-success btn-block">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function showError(message) {
+        const errorDiv = document.getElementById('errorDiv');
+        errorDiv.innerHTML = message;
+        errorDiv.classList.remove('d-none');
+    }
+
+    function hideError(){
+        const errorDiv = document.getElementById('errorDiv');
+        errorDiv.innerHTML = "";
+        errorDiv.classList.add('d-none');
+    }
+
+    function updateProgressBar(stepNumber) {
+        const progressFills = document.querySelectorAll('.progress-fill');
+        for (let i = 0; i < stepNumber; i++) {
+            progressFills[i].style.width = '100%';
+            progressFills[i].style.left = '50%';
+        }
+        if (stepNumber <= progressFills.length) {
+            progressFills[stepNumber - 1].style.width = (stepNumber === progressFills.length) ? '100%' : '100%';
+            progressFills[stepNumber - 1].style.left = (stepNumber === progressFills.length) ? '-50%' : '50%';
+        }
+    }
+
+
+    function showQuestion(questionNumber) {
+
+        // Validate the input before moving to the next question
+        if (questionNumber === 2 && !validateRadioButtons('roofIssue')) {
+            showError('Please select an option before proceeding.');
+            return;
+        }
+        if (questionNumber === 3 && !validateRadioButtons('replacementTime')) {
+            showError('Please select an option before proceeding.');
+            return;
+        }
+        if (questionNumber === 4 && !validateRadioButtons('creditScore')) {
+            showError('Please select an option before proceeding.');
+            return;
+        }
+        // Validate the input before moving to the next question
+        if (questionNumber === 5 && !validateInput('name')) return;
+        if (questionNumber === 6 && !validateInput('email')) return;
+        if (questionNumber === 7 && !validateInput('phone')) return;
+
+        // Hide the error message
+        hideError();
+
+        // Update progress bar
+        updateProgressBar(questionNumber-1);
+        const steps = document.querySelectorAll('.step-progress li');
+        steps.forEach((step, index) => {
+            if (index < questionNumber) {
+                step.classList.add('active');
+            } else {
+                step.classList.remove('active');
+            }
+        });
+        // Hide all tooltips
+        const tooltips = document.querySelectorAll('.feedback-tooltip');
+        tooltips.forEach(tooltip => {
+            tooltip.style.opacity = '0';
+        });
+
+        // Show the tooltip for the current step
+        const currentStep = document.querySelector('.step-progress li:nth-child(' + questionNumber + ')');
+        if (currentStep) {
+            const currentTooltip = currentStep.querySelector('.feedback-tooltip');
+            currentTooltip.style.opacity = '1';
+        }
+
+        // Hide all questions
+        const questions = document.querySelectorAll('.quiz-question');
+        questions.forEach(question => {
+            question.classList.add('d-none');
+        });
+
+        // Show the desired question
+        document.getElementById('question' + questionNumber).classList.remove('d-none');
+
+        // Set focus on the first input field of the selected question
+        document.querySelector('#question' + questionNumber + ' input').focus();
+    }
+
+    function validateRadioButtons(groupName) {
+        const radioButtons = document.getElementsByName(groupName);
+        for (let i = 0; i < radioButtons.length; i++) {
+            if (radioButtons[i].checked) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    function validateInput(inputName) {
+        const inputElement = document.getElementsByName(inputName)[0];
+        const inputValue = inputElement.value.trim();
+
+        if (!inputValue) {
+            showError('Please fill out this field before proceeding.');
+            inputElement.focus();
+            return false;
+        }
+
+        if (inputName === 'email' && !validateEmail(inputValue)) {
+            showError('Please enter a valid email address.');
+            inputElement.focus();
+            return false;
+        }
+
+        if (inputName === 'phone' && !validatePhoneNumber(inputValue)) {
+            showError('Please enter a valid phone number.');
+            inputElement.focus();
+            return false;
+        }
+
+        return true;
+    }
+
+    function validateEmail(email) {
+        // Regular expression for basic email validation
+        const regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+        return regex.test(email);
+    }
+
+    function validatePhoneNumber(phoneNumber) {
+        // Check if the phone number contains only numbers and has a length of 10
+        const regex = /^\d{10}$/;
+        return regex.test(phoneNumber);
+    }
+
+    function checkEnter(questionNumber) {
+        if (event.keyCode === 13) {
+            event.preventDefault();
+            showQuestion(questionNumber);
+        }
+    }
+
+    let autocomplete;
+
+    function initAutocomplete() {
+        autocomplete = new google.maps.places.Autocomplete(
+            document.getElementById('autocomplete'), { types: ['geocode'] }
+        );
+        autocomplete.setFields(['address_component']);
+    }
+
+    function geolocate() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(function (position) {
+                const geolocation = {
+                    lat: position.coords.latitude,
+                    lng: position.coords.longitude
+                };
+                const circle = new google.maps.Circle({
+                    center: geolocation,
+                    radius: position.coords.accuracy
+                });
+                autocomplete.setBounds(circle.getBounds());
+            });
+        }
+    }
+</script>
+
+<!-- Bootstrap JS and jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA82_ETt5ohG0A3aMlpsgA-rU9DiB1aukw&callback=initAutocomplete&libraries=places&v=weekly" defer></script>
+
+</body>
+
+</html>

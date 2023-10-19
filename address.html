@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Place Autocomplete Single Address Field</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="./style.css" />
+</head>
+
+<body>
+    <form id="address-form" action="" method="get" autocomplete="off">
+        <p class="title">Enter your address</p>
+        <label class="full-field">
+            <span class="form-label">Address*</span>
+            <input id="autocomplete" name="address" onFocus="geolocate()" type="text" required autocomplete="off" />
+        </label>
+        <button type="button" class="my-button">Save address</button>
+        <input type="reset" value="Clear form" />
+    </form>
+    <img class="powered-by-google" src="https://storage.googleapis.com/geo-devrel-public-buckets/powered_by_google_on_white.png" alt="Powered by Google" />
+
+    <script>
+        let autocomplete;
+
+        function initAutocomplete() {
+            autocomplete = new google.maps.places.Autocomplete(
+                document.getElementById('autocomplete'), { types: ['geocode'] }
+            );
+            autocomplete.setFields(['address_component']);
+        }
+
+        function geolocate() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(function (position) {
+                    const geolocation = {
+                        lat: position.coords.latitude,
+                        lng: position.coords.longitude
+                    };
+                    const circle = new google.maps.Circle({
+                        center: geolocation,
+                        radius: position.coords.accuracy
+                    });
+                    autocomplete.setBounds(circle.getBounds());
+                });
+            }
+        }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initAutocomplete&libraries=places&v=weekly" defer></script>
+</body>
+
+</html>
