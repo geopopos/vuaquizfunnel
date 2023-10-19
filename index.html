@@ -114,20 +114,27 @@
             opacity: 1;
             transform: translate(-50%, -100%);
         }
+
+
     </style>
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body class="bg-light">
-
 <div class="container mt-5">
-    <div class="row justify-content-center">
+    <!-- Logo Section -->
+    <div class="row justify-content-center mb-5">
+        <div class="col-md-8 text-center">
+            <img src="https://volumeupagency.com/wp-content/uploads/2023/02/f10fa774-bfe4-4f71-b3ce-8532f8359010.webp" alt="Company Logo" width="200" loading="lazy">
+        </div>
+    </div>
+    <div class="row justify-content-center" id="surveySection">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header text-center bg-primary text-white">
-                    <h1>Get Today's Best Price On A New Roof</h1>
-                    <h4 style="color:yellow;">[Don't Miss Out, Limited Spots Available!]</h4>
+                    <h1>Get Homeowners Who Are Looking For A Roof Replacement Live On The Phone</h1>
+                    <h4 style="color:yellow;">No more follow up. Let us handle it for you!</h4>
                 </div>
                 <div class="card-body">
 
@@ -171,16 +178,26 @@
                             <div class="row">
                                 <div class="col-md-6 mb-2">
                                     <label class="btn btn-outline-primary btn-block custom-btn">
-                                        <input type="radio" name="roofIssue" id="roofIssueLeaking" value="leaking" onclick="showQuestion(2)" required> 💦It's leaking
+                                        <input type="radio" name="timeinindustry" id="timeinindustry1to5years" value="1-5 years" required> 1-5 Years
                                     </label>
                                 </div>
                                 <div class="col-md-6 mb-2">
                                     <label class="btn btn-outline-primary btn-block custom-btn">
-                                        <input type="radio" name="roofIssue" id="roofIssueReplacement" value="replacement" onclick="showQuestion(2)" required> 🔨I need it replaced
+                                        <input type="radio" name="timeinindustry" id="timeinindustry5to10years" value="5-10 years" required> 5-10 years
+                                    </label>
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <label class="btn btn-outline-primary btn-block custom-btn">
+                                        <input type="radio" name="timeinindustry" id="timeinindustry10to15years" value="10-15 years" required> 10-15 years
+                                    </label>
+                                </div>
+                                <div class="col-md-6 mb-2">
+                                    <label class="btn btn-outline-primary btn-block custom-btn">
+                                        <input type="radio" name="timeinindustry" id="timeinindustry15years+" value="15 years+" required> 15 years+
                                     </label>
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-primary btn-block mt-3" onclick="showQuestion(2)">Next</button>
+                            <button type="button" class="btn btn-primary btn-block mt-3" onclick="showNextQuestion()">Next</button>
                         </div>
 
                         <!-- Question 2 -->
@@ -189,21 +206,21 @@
                             <div class="row">
                                 <div class="col-md-4 mb-2">
                                     <label class="btn btn-outline-primary btn-block custom-btn">
-                                        <input type="radio" name="replacementTime" value="asap" onclick="showQuestion(3)" id="replacementTimeASAP" required> ⏱️ ASAP
+                                        <input type="radio" name="replacementTime" value="asap" id="replacementTimeASAP" required> ⏱️ ASAP
                                     </label>
                                 </div>
                                 <div class="col-md-4 mb-2">
                                     <label class="btn btn-outline-primary btn-block custom-btn">
-                                        <input type="radio" name="replacementTime" value="1_week" onclick="showQuestion(3)" id="replacementTime1_week" required> 📆 Within 1 week
+                                        <input type="radio" name="replacementTime" value="1_week" id="replacementTime1_week" required> 📆 Within 1 week
                                     </label>
                                 </div>
                                 <div class="col-md-4 mb-2">
                                     <label class="btn btn-outline-primary btn-block custom-btn">
-                                        <input type="radio" name="replacementTime" value="3_weeks" onclick="showQuestion(3)" id="replacementTime3_weeks" required> 🗓️ Within 3 weeks
+                                        <input type="radio" name="replacementTime" value="3_weeks" id="replacementTime3_weeks" required> 🗓️ Within 3 weeks
                                     </label>
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-primary btn-block mt-3" onclick="showQuestion(3)">Next</button>
+                            <button type="button" class="btn btn-primary btn-block mt-3" onclick="showNextQuestion()">Next</button>
                         </div>
 
                         <!-- Question 3 -->
@@ -212,48 +229,48 @@
                             <div class="row">
                                 <div class="col-md-3 mb-2">
                                     <label class="btn btn-outline-primary btn-block custom-btn">
-                                        <input type="radio" name="creditScore" value="poor" id="creditScorePoor" onclick="showQuestion(4)" required> Poor (400-650)
+                                        <input type="radio" name="creditScore" value="poor" id="creditScorePoor" required> Poor (400-650)
                                     </label>
                                 </div>
                                 <div class="col-md-3 mb-2">
                                     <label class="btn btn-outline-primary btn-block custom-btn">
-                                        <input type="radio" name="creditScore" value="fair" id="creditScoreFair"  onclick="showQuestion(4)" required> Fair (650-700)
+                                        <input type="radio" name="creditScore" value="fair" id="creditScoreFair"  required> Fair (650-700)
                                     </label>
                                 </div>
                                 <div class="col-md-3 mb-2">
                                     <label class="btn btn-outline-primary btn-block custom-btn">
-                                        <input type="radio" name="creditScore" value="good" id="creditScoreGood" onclick="showQuestion(4)" required> Good (700-750)
+                                        <input type="radio" name="creditScore" value="good" id="creditScoreGood" required> Good (700-750)
                                     </label>
                                 </div>
                                 <div class="col-md-3 mb-2">
                                     <label class="btn btn-outline-primary btn-block custom-btn">
-                                        <input type="radio" name="creditScore" value="excellent" id="creditScoreExcellent" onclick="showQuestion(4)" required> Excellent (750+)
+                                        <input type="radio" name="creditScore" value="excellent" id="creditScoreExcellent" required> Excellent (750+)
                                     </label>
                                 </div>
                             </div>
-                            <button type="button" class="btn btn-primary btn-block mt-3" onclick="showQuestion(4)">Next</button>
+                            <button type="button" class="btn btn-primary btn-block mt-3" onclick="showNextQuestion()">Next</button>
                         </div>
 
 
                         <!-- Question 4 -->
                         <div id="question4" class="quiz-question d-none">
                             <label><h3>What is your name?</h3></label>
-                            <input type="text" name="name" class="form-control mb-3" onkeypress="checkEnter(5)" required autofocus>
-                            <button type="button" class="btn btn-primary btn-block mt-3" onclick="showQuestion(5)">Next</button>
+                            <input type="text" name="name" class="form-control mb-3" onkeypress="checkEnter(event)" required autofocus>
+                            <button type="button" class="btn btn-primary btn-block mt-3" onclick="showNextQuestion()">Next</button>
                         </div>
 
                         <!-- Question 5 -->
                         <div id="question5" class="quiz-question d-none">
                             <label><h3>What is your email?</h3></label>
-                            <input type="email" name="email" class="form-control mb-3" onkeypress="checkEnter(6)" required autofocus>
-                            <button type="button" class="btn btn-primary btn-block mt-3" onclick="showQuestion(6)">Next</button>
+                            <input type="email" name="email" class="form-control mb-3" onkeypress="checkEnter(event)" required autofocus>
+                            <button type="button" class="btn btn-primary btn-block mt-3" onclick="showNextQuestion()">Next</button>
                         </div>
 
                         <!-- Question 6 -->
                         <div id="question6" class="quiz-question d-none">
                             <label><h3>What is your phone?</h3></label>
-                            <input type="tel" name="phone" class="form-control mb-3" onkeypress="checkEnter(7)" required autofocus>
-                            <button type="button" class="btn btn-primary btn-block mt-3" onclick="showQuestion(7)">Next</button>
+                            <input type="tel" name="phone" class="form-control mb-3" onkeypress="checkEnter(event)" required autofocus>
+                            <button type="button" class="btn btn-primary btn-block mt-3" onclick="showNextQuestion()">Next</button>
                         </div>
 
                         <!-- Question 7 -->
@@ -267,6 +284,152 @@
             </div>
         </div>
     </div>
+<!-- Engaging Sections -->
+<div class="container mt-5">
+
+    <!-- Stand Out Section -->
+    <div class="content-section p-4 rounded shadow-lg mb-5 bg-white">
+        <h2 class="text-center text-primary mb-4">Why Choose Us?</h2>
+        <p class="lead">Our service uniquely combines advanced digital marketing strategies with a personalized touch. By leveraging our unlimited live transfer system, we ensure roofing companies connect directly with genuine homeowners looking for roof replacements. This direct connection not only saves time but also positions our clients as the go-to choice in a crowded market.</p>
+        <div class="text-center">
+            <button class="btn btn-primary btn-block learn-more-btn">Learn More</button>
+        </div>
+    </div>
+
+    <!-- Lead Generation Section -->
+    <div class="content-section p-4 rounded shadow-lg mb-5 bg-white">
+        <h2 class="text-center text-primary mb-4">Lead Generation, Redefined</h2>
+        <p class="lead">Traditional lead generation methods often drop leads into the laps of roofing companies, leaving them with the daunting task of follow-up. Our live transfer system revolutionizes this by doing the heavy lifting. We nurture and vet each lead, ensuring that by the time a roofing company receives the call, they're speaking to a homeowner who's verified and genuinely interested in a roof replacement.</p>
+        <div class="text-center">
+            <button class="btn btn-primary btn-block learn-more-btn">Learn More</button>
+        </div>
+    </div>
+
+    <!-- Investment Returns Section -->
+    <div class="content-section p-4 rounded shadow-lg mb-5 bg-white">
+        <h2 class="text-center text-primary mb-4">Investment That Pays Off</h2>
+        <p class="lead">While there's an investment involved in our service, the potential returns far outweigh the costs. With our specialized approach, roofing companies have seen significant growth in their contracts and overall revenue. For instance, we've assisted companies in achieving milestones, from their first million in revenue to substantial growth year over year.</p>
+        <div class="text-center">
+            <button class="btn btn-primary btn-block learn-more-btn">Learn More</button>
+        </div>
+    </div>
+
+    <!-- Building Brands Section -->
+    <div class="content-section p-4 rounded shadow-lg mb-5 bg-white">
+        <h2 class="text-center text-primary mb-4">More Than Just Leads</h2>
+        <p class="lead">Our service isn't just about lead generation; it's about brand building. By consistently connecting roofing contractors with genuine homeowners and ensuring a seamless experience, we help establish and reinforce their brand reputation. Over time, this consistent quality of service and direct engagement leads to word-of-mouth referrals and heightened brand awareness in the community.</p>
+        <div class="text-center">
+            <button class="btn btn-primary btn-block learn-more-btn">Learn More</button>
+        </div>
+    </div>
+
+    <div class="content-section p-4 rounded shadow-lg mb-5 bg-white">
+        <h2 class="text-center text-primary mb-4">Our Success Stories</h2>
+        <p class="lead text-center">Experience the success stories of our partners through these videos.</p>
+    
+        <!-- Carousel for YouTube Videos -->
+        <div id="videoCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+            <div class="carousel-inner">
+    
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/3r18Ejq_7So?si=x6eKv1-izzFTk7wN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+    
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/sD085C19MTM?si=bsd7dwTeXtM7Jb4u" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+    
+               <!-- Slide 3 -->
+               <div class="carousel-item">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/PxK_OwuYVfA?si=PfZPeIpj9KfOoze8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+            
+            <!-- Slide 4 -->
+            <div class="carousel-item">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/TErwYTUlRmg?si=mi3F6xkeRRXesiy6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+
+
+            <!-- Slide 5 -->
+            <div class="carousel-item">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/XRlyWooZjoM?si=gwRIrzKdCBmZOhVI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- Slide 6 -->
+            <div class="carousel-item">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/M2SslJgIdgs?si=OqYFTFPPWuIRp4fw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- Slide 7 -->
+            <div class="carousel-item">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/c9GHOXfuCss?si=6CrTMaIuVlE-ABY5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- Slide 8 -->
+            <div class="carousel-item">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe src="https://player.vimeo.com/video/642368470?h=f33757b17b" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+<p><a href="https://vimeo.com/642368470">2 More Appointments For 4x Less Than Traditional Lead Gen</a> from <a href="https://vimeo.com/user106579653">George Roros</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+                </div>
+            </div>
+    
+            </div>
+    
+            <!-- Carousel Controls -->
+            <a class="carousel-control-prev" href="#videoCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#videoCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <div class="text-center">
+            <button class="btn btn-primary btn-block learn-more-btn">Learn More</button>
+        </div>
+    </div>
+
+    <!-- Demystifying Industry Jargon Section -->
+    <div class="content-section p-4 rounded shadow-lg mb-5 bg-white">
+        <h2 class="text-center text-primary mb-4">Industry Jargon, Simplified</h2>
+        <p class="lead">Confused about industry terms? Here's a quick guide:</p>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Lead: Basic contact details from potential clients.</li>
+            <li class="list-group-item">Appointment: A pre-set meeting time, which might not always materialize.</li>
+            <li class="list-group-item">Inbound Call: Direct calls, sometimes from non-genuine sources.</li>
+            <li class="list-group-item">Live Transfer: Our forte. We nurture the lead and connect you live, ensuring genuine interest and a higher chance of conversion.</li>
+        </ul>
+        <div class="text-center">
+            <button class="btn btn-primary btn-block learn-more-btn">Learn More</button>
+        </div>
+    </div>
+
+    <!-- Staying Ahead Section -->
+    <div class="content-section p-4 rounded shadow-lg mb-5 bg-white">
+        <h2 class="text-center text-primary mb-4">Always Ahead of the Curve</h2>
+        <p class="lead">Our team is always on the pulse of the roofing industry. By staying updated with market trends, technological advancements, and industry shifts, we continuously refine our strategies. This proactive approach ensures our clients always have a competitive edge.</p>
+        <div class="text-center">
+            <button class="btn btn-primary btn-block learn-more-btn">Learn More</button>
+        </div>
+    </div>
+
 </div>
 
 <script>
@@ -294,11 +457,21 @@
         }
     }
 
-
-    function showQuestion(questionNumber) {
+    document.addEventListener('DOMContentLoaded', function() {
+        const radioButtons = document.querySelectorAll('input[type="radio"]');
+        radioButtons.forEach(radio => {
+            radio.addEventListener('change', function() {
+                if (this.checked) {
+                    showNextQuestion();
+                }
+            });
+        });
+    });
+    
+    function showQuestion(questionNumber, inputName) {
 
         // Validate the input before moving to the next question
-        if (questionNumber === 2 && !validateRadioButtons('roofIssue')) {
+        if (questionNumber === 2 && !validateRadioButtons('timeinindustry')) {
             showError('Please select an option before proceeding.');
             return;
         }
@@ -314,7 +487,8 @@
         if (questionNumber === 5 && !validateInput('name')) return;
         if (questionNumber === 6 && !validateInput('email')) return;
         if (questionNumber === 7 && !validateInput('phone')) return;
-
+        
+    
         // Hide the error message
         hideError();
 
@@ -364,6 +538,20 @@
         return false;
     }
 
+    function showNextQuestion() {
+        const questions = document.querySelectorAll('.quiz-question');
+        let currentQuestionIndex = -1;
+        questions.forEach((question, index) => {
+            if (!question.classList.contains('d-none')) {
+                currentQuestionIndex = index;
+            }
+        });
+
+        if (currentQuestionIndex >= 0 && currentQuestionIndex < questions.length - 1) {
+            showQuestion(currentQuestionIndex + 2); // +2 because array is 0-based and question numbers are 1-based
+        }
+    }
+
     function validateInput(inputName) {
         const inputElement = document.getElementsByName(inputName)[0];
         const inputValue = inputElement.value.trim();
@@ -401,10 +589,10 @@
         return regex.test(phoneNumber);
     }
 
-    function checkEnter(questionNumber) {
+    function checkEnter(event) {
         if (event.keyCode === 13) {
             event.preventDefault();
-            showQuestion(questionNumber);
+            showNextQuestion();
         }
     }
 
@@ -432,6 +620,50 @@
             });
         }
     }
+</script>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+    function onYouTubeIframeAPIReady() {
+        // Create YouTube video instances for each video in the carousel
+        var video1 = new YT.Player('video1', {
+            events: {
+                'onStateChange': onPlayerStateChange
+            }
+        });
+
+        var video2 = new YT.Player('video2', {
+            events: {
+                'onStateChange': onPlayerStateChange
+            }
+        });
+
+        // Add more video instances as needed
+    }
+
+    function onPlayerStateChange(event) {
+        // If the video is played or buffered, pause the carousel
+        if (event.data == YT.PlayerState.PLAYING || event.data == YT.PlayerState.BUFFERING) {
+            $('#videoCarousel').carousel('pause');
+        }
+        // If the video is paused, stopped, or ended, resume the carousel
+        else if (event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.ENDED || event.data == YT.PlayerState.CUED) {
+            $('#videoCarousel').carousel('cycle');
+        }
+    }
+
+
+    // learn more button js
+    document.addEventListener('DOMContentLoaded', function() {
+    const learnMoreButtons = document.querySelectorAll('.learn-more-btn');
+    learnMoreButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const surveySection = document.getElementById('surveySection');
+            surveySection.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+});
+
 </script>
 
 <!-- Bootstrap JS and jQuery -->
