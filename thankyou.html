@@ -4,35 +4,381 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You!</title>
+    <title>More Homeowners On The Phone + Less Headache</title>
+    <style>
+        .background-image {
+            background-image: url('https://www.californiacontractorbonds.com/wp-content/uploads/2022/04/Screen-Shot-2022-04-21-at-3.28.45-PM.png');
+            background-size: cover;
+            background-position: center;
+            padding-bottom: 50px;
+            position: relative;
+        }
+        .background-image::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black overlay */
+        }
+        .card-header {
+            padding-bottom: 30px !important;
+            margin-bottom: 20px !important;
+        }
+        .custom-btn-height {
+            margin: 0 !important; /* Reset margin */
+            padding: .375rem .75rem; /* Adjust padding if necessary */
+            line-height: 1.5; /* Adjust line height if necessary */
+        }
+        .btn-group-toggle.d-flex {
+            align-items: center; /* Vertically center the buttons */
+        }
+        input[type="radio"] {
+            display: none; /* Hide the radio buttons */
+        }
+
+        /* Additional Styles for Enhanced Design */
+        .progress-fill {
+            background: #0B7BFF; /* Color of the progress fill */
+            height: 5px;
+            width: 0%; /* Initial width */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translateY(-50%);
+            z-index: 2; /* Above the background bar but below the tooltip */
+        }
+
+        .step-progress {
+            display: flex;
+            justify-content: space-between;
+            list-style-type: none;
+            padding: 0;
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        .step-progress li {
+            text-align: center;
+            flex: 1;
+            position: relative;
+        }
+
+        .step-progress li::before {
+            content: "";
+            width: 100%;
+            height: 5px;
+            background: #e9ecef;
+            position: absolute;
+            top: 50%;
+            left: 100%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+        }
+
+        .step-progress li:last-child::before {
+            display: none;
+        }
+
+        .step-progress li.active::after {
+            background: #0B7BFF;
+        }
+
+        .step-progress li::after {
+            content: "";
+            width: 20px;
+            height: 20px;
+            border: 5px solid #0B7BFF;
+            background: #fff;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            transition: background 0.3s;
+        }
+
+        .feedback-tooltip {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -120%);
+            background: #0B7BFF;
+            color: #fff;
+            border: 1px solid #fff;
+            padding: 0.5rem 1rem;
+            border-radius: 0.25rem;
+            opacity: 0;
+            transition: opacity 0.3s, transform 0.3s;
+            pointer-events: none;
+        }
+
+        .feedback-tooltip::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 6px;
+            border-style: solid;
+            border-color: #0B7BFF transparent transparent transparent;
+        }
+
+        .step-progress li.active .feedback-tooltip {
+            opacity: 1;
+            transform: translate(-50%, -100%);
+        }
+        
+        @media (max-width: 767px) {
+            h1 {
+                font-size: 30px !important;
+            }
+            h4 {
+                font-size: 22px !important;
+            }
+            .container {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+
+    </style>
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <link rel="icon" href="https://volumeupagency.com/wp-content/uploads/2023/02/cropped-f10fa774-bfe4-4f71-b3ce-8532f8359010-32x32.webp" sizes="32x32" />
+    <link rel="icon" href="https://volumeupagency.com/wp-content/uploads/2023/02/cropped-f10fa774-bfe4-4f71-b3ce-8532f8359010-192x192.webp" sizes="192x192" />
+    <link rel="apple-touch-icon" href="https://volumeupagency.com/wp-content/uploads/2023/02/cropped-f10fa774-bfe4-4f71-b3ce-8532f8359010-180x180.webp" />
+    <meta name="msapplication-TileImage" content="https://volumeupagency.com/wp-content/uploads/2023/02/cropped-f10fa774-bfe4-4f71-b3ce-8532f8359010-270x270.webp" />
 </head>
 
 <body class="bg-light">
-
-<div class="container mt-5">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header text-center bg-success text-white">
-                    <h1>WAIT! One More Step...</h1>
+    <div class="background-image">
+        <div class="container">
+        <div class="container mt-5" style="margin-top: 0px !important;">
+            <!-- Logo Section -->
+            <div class="row justify-content-center mb-5">
+                <div class="col-md-8 text-center">
+                    <img src="https://volumeupagency.com/wp-content/uploads/2023/02/f10fa774-bfe4-4f71-b3ce-8532f8359010.webp" alt="Company Logo" width="200" loading="lazy">
                 </div>
-                <div class="card-body">
-                    <h3 class="text-center">
-                        We've received your submission!
-                    </h3>
-                    <h4 class="text-center">
-                        Due to the high volume of requests, and to ensure we can provide the best service possible, there are limited spots every month. To secure your spot, grab a time below now! 
-                    </h4>
-                    <p class="text-center">
-                        <iframe src="https://link.volumeup-agency.com/widget/booking/XW6cIPqOdJ74FFPiHczb" style="width: 100%;border:none;overflow: hidden;" scrolling="no" id="jMlp9ARqltGcxEfYnXA3_1697759257103"></iframe><br><script src="https://link.volumeup-agency.com/js/form_embed.js" type="text/javascript"></script>
-                    </p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header text-center bg-success text-white">
+                            <h1>WAIT! One More Step...</h1>
+                        </div>
+                        <div class="card-body">
+                            <h3 class="text-center">
+                                We've received your submission!
+                            </h3>
+                            <h4 class="text-center">
+                                Due to the high volume of requests, and to ensure we can provide the best service possible, there are limited spots every month. To secure your spot, grab a time below now! 
+                            </h4>
+                            <p class="text-center">
+                                <iframe src="https://link.volumeup-agency.com/widget/booking/XW6cIPqOdJ74FFPiHczb" style="width: 100%;border:none;overflow: hidden;" scrolling="no" id="jMlp9ARqltGcxEfYnXA3_1697759257103"></iframe><br><script src="https://link.volumeup-agency.com/js/form_embed.js" type="text/javascript"></script>
+                            </p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<!-- Engaging Sections -->
+<div class="container mt-5">
+
+    <!-- Stand Out Section -->
+    <div class="content-section p-4 rounded shadow-lg mb-5 bg-white">
+        <h2 class="text-center text-primary mb-4">Why Choose Us?</h2>
+        <p class="lead">Our service uniquely combines advanced digital marketing strategies with a personalized touch. By leveraging our unlimited live transfer system, we ensure roofing companies connect directly with genuine homeowners looking for roof replacements. This direct connection not only saves time but also positions our clients as the go-to choice in a crowded market.</p>
+        <div class="text-center">
+            <button class="btn btn-primary btn-block learn-more-btn">Learn More</button>
+        </div>
+    </div>
+
+    <!-- Lead Generation Section -->
+    <div class="content-section p-4 rounded shadow-lg mb-5 bg-white">
+        <h2 class="text-center text-primary mb-4">Lead Generation, Redefined</h2>
+        <p class="lead">Traditional lead generation methods often drop leads into the laps of roofing companies, leaving them with the daunting task of follow-up. Our live transfer system revolutionizes this by doing the heavy lifting. We nurture and vet each lead, ensuring that by the time a roofing company receives the call, they're speaking to a homeowner who's verified and genuinely interested in a roof replacement.</p>
+        <div class="text-center">
+            <button class="btn btn-primary btn-block learn-more-btn">Learn More</button>
+        </div>
+    </div>
+
+    <!-- Investment Returns Section -->
+    <div class="content-section p-4 rounded shadow-lg mb-5 bg-white">
+        <h2 class="text-center text-primary mb-4">Investment That Pays Off</h2>
+        <p class="lead">While there's an investment involved in our service, the potential returns far outweigh the costs. With our specialized approach, roofing companies have seen significant growth in their contracts and overall revenue. For instance, we've assisted companies in achieving milestones, from their first million in revenue to substantial growth year over year.</p>
+        <div class="text-center">
+            <button class="btn btn-primary btn-block learn-more-btn">Learn More</button>
+        </div>
+    </div>
+
+    <!-- Building Brands Section -->
+    <div class="content-section p-4 rounded shadow-lg mb-5 bg-white">
+        <h2 class="text-center text-primary mb-4">More Than Just Leads</h2>
+        <p class="lead">Our service isn't just about lead generation; it's about brand building. By consistently connecting roofing contractors with genuine homeowners and ensuring a seamless experience, we help establish and reinforce their brand reputation. Over time, this consistent quality of service and direct engagement leads to word-of-mouth referrals and heightened brand awareness in the community.</p>
+        <div class="text-center">
+            <button class="btn btn-primary btn-block learn-more-btn">Learn More</button>
+        </div>
+    </div>
+
+    <div class="content-section p-4 rounded shadow-lg mb-5 bg-white">
+        <h2 class="text-center text-primary mb-4">Our Success Stories</h2>
+        <p class="lead text-center">Experience the success stories of our partners through these videos.</p>
+    
+        <!-- Carousel for YouTube Videos -->
+        <div id="videoCarousel" class="carousel slide" data-ride="carousel" data-interval="false">
+            <div class="carousel-inner">
+    
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/3r18Ejq_7So?si=x6eKv1-izzFTk7wN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+    
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/sD085C19MTM?si=bsd7dwTeXtM7Jb4u" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                </div>
+    
+               <!-- Slide 3 -->
+               <div class="carousel-item">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/PxK_OwuYVfA?si=PfZPeIpj9KfOoze8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+            
+            <!-- Slide 4 -->
+            <div class="carousel-item">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/TErwYTUlRmg?si=mi3F6xkeRRXesiy6" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+
+
+            <!-- Slide 5 -->
+            <div class="carousel-item">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/XRlyWooZjoM?si=gwRIrzKdCBmZOhVI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- Slide 6 -->
+            <div class="carousel-item">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/M2SslJgIdgs?si=OqYFTFPPWuIRp4fw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- Slide 7 -->
+            <div class="carousel-item">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/c9GHOXfuCss?si=6CrTMaIuVlE-ABY5" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- Slide 8 -->
+            <div class="carousel-item">
+                <div class="embed-responsive embed-responsive-16by9">
+                    <iframe src="https://player.vimeo.com/video/642368470?h=f33757b17b" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+<p><a href="https://vimeo.com/642368470">2 More Appointments For 4x Less Than Traditional Lead Gen</a> from <a href="https://vimeo.com/user106579653">George Roros</a> on <a href="https://vimeo.com">Vimeo</a>.</p>
+                </div>
+            </div>
+    
+            </div>
+    
+            <!-- Carousel Controls -->
+            <a class="carousel-control-prev" href="#videoCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#videoCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+        <div class="text-center">
+            <button class="btn btn-primary btn-block learn-more-btn">Learn More</button>
+        </div>
+    </div>
+
+    <!-- Demystifying Industry Jargon Section -->
+    <div class="content-section p-4 rounded shadow-lg mb-5 bg-white">
+        <h2 class="text-center text-primary mb-4">Industry Jargon, Simplified</h2>
+        <p class="lead">Confused about industry terms? Here's a quick guide:</p>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Lead: Basic contact details from potential clients.</li>
+            <li class="list-group-item">Appointment: A pre-set meeting time, which might not always materialize.</li>
+            <li class="list-group-item">Inbound Call: Direct calls, sometimes from non-genuine sources.</li>
+            <li class="list-group-item">Live Transfer: Our forte. We nurture the lead and connect you live, ensuring genuine interest and a higher chance of conversion.</li>
+        </ul>
+        <div class="text-center">
+            <button class="btn btn-primary btn-block learn-more-btn">Learn More</button>
+        </div>
+    </div>
+
+    <!-- Staying Ahead Section -->
+    <div class="content-section p-4 rounded shadow-lg mb-5 bg-white">
+        <h2 class="text-center text-primary mb-4">Always Ahead of the Curve</h2>
+        <p class="lead">Our team is always on the pulse of the roofing industry. By staying updated with market trends, technological advancements, and industry shifts, we continuously refine our strategies. This proactive approach ensures our clients always have a competitive edge.</p>
+        <div class="text-center">
+            <button class="btn btn-primary btn-block learn-more-btn">Learn More</button>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script>
+    function onYouTubeIframeAPIReady() {
+        // Create YouTube video instances for each video in the carousel
+        var video1 = new YT.Player('video1', {
+            events: {
+                'onStateChange': onPlayerStateChange
+            }
+        });
+
+        var video2 = new YT.Player('video2', {
+            events: {
+                'onStateChange': onPlayerStateChange
+            }
+        });
+
+        // Add more video instances as needed
+    }
+
+    function onPlayerStateChange(event) {
+        // If the video is played or buffered, pause the carousel
+        if (event.data == YT.PlayerState.PLAYING || event.data == YT.PlayerState.BUFFERING) {
+            $('#videoCarousel').carousel('pause');
+        }
+        // If the video is paused, stopped, or ended, resume the carousel
+        else if (event.data == YT.PlayerState.PAUSED || event.data == YT.PlayerState.ENDED || event.data == YT.PlayerState.CUED) {
+            $('#videoCarousel').carousel('cycle');
+        }
+    }
+
+
+    // learn more button js
+    document.addEventListener('DOMContentLoaded', function() {
+    const learnMoreButtons = document.querySelectorAll('.learn-more-btn');
+    learnMoreButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const surveySection = document.getElementById('surveySection');
+            surveySection.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+});
+
+</script>
 
 <!-- Bootstrap JS and jQuery -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
