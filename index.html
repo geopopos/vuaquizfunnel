@@ -243,6 +243,8 @@
                                 <input type="hidden" name="ad_id" value="">
                                 <input type="hidden" name="ad_name" value="">
                                 <input type="hidden" name="fbclid" value="">
+                                <input type="text" id="fbp" name="fbp" hidden>
+                                <input type="text" id="fbc" name="fbc" hidden>
                                 <!-- Question 1 -->
                                 <div id="question1" class="quiz-question">
                                     <label><h3>How long have you been in the roofing industry?</h3></label>
@@ -560,6 +562,28 @@
 </div>
 
 <script>
+    // grab fbp and fbc
+    window.onload = function() {
+        function getCookieValue(name) {
+            var value = "; " + document.cookie;
+            var parts = value.split("; " + name + "=");
+            if (parts.length == 2) return parts.pop().split(";").shift();
+        }
+
+        var fbpValue = getCookieValue('_fbp');
+        var fbcValue = getCookieValue('_fbc');
+
+        if (fbpValue) {
+            document.getElementById('fbp').value = fbpValue;
+        }
+
+        if (fbcValue) {
+            document.getElementById('fbc').value = fbcValue;
+        }
+    }
+
+    
+
     function showError(message) {
         const errorDiv = document.getElementById('errorDiv');
         errorDiv.innerHTML = message;
